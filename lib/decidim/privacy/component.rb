@@ -5,6 +5,7 @@ require_dependency "decidim/components/namer"
 Decidim.register_component(:privacy) do |component|
   component.engine = Decidim::Privacy::Engine
   component.admin_engine = Decidim::Privacy::AdminEngine
+  component.permissions_class_name = "Decidim::Privacy::Admin::Permissions"
   component.icon = "decidim/privacy/icon.svg"
 
   # component.on(:before_destroy) do |instance|
@@ -12,7 +13,7 @@ Decidim.register_component(:privacy) do |component|
   # end
 
   # These actions permissions can be configured in the admin panel
-  # component.actions = %w()
+  component.actions = %w(privacy)
 
   # component.settings(:global) do |settings|
   #   # Add your global settings

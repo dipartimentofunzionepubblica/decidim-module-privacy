@@ -1,6 +1,65 @@
 ---
 en:
+  layouts:
+    decidim:
+      user_profile:
+        my_privacy: Select you privacy
   decidim:
+    admin:
+      menu:
+        privacy: Privacy module
+        comparative_stats: "comparative_stats"
+    user:
+      menu:
+        privacy: My privacy
     components:
       privacy:
         name: Privacy
+    privacy:
+      admin:
+        privacy:
+          form:
+            help_title: help title todo
+            help_html: help html todo
+            user_avatar: Enable user avatar upload
+            user_search: Enable user && comment search
+            user_follow: Enable user follow
+            user_index: Enable user index
+            user_public_page: Enable user public page
+          edit:
+            title: Edit configuration
+            save: Save
+          update:
+            success: Privacy setting successfully updated.
+            error: Error updating privacy setting.
+          index:
+            title: Titolo privacy
+      privacy:
+        form:
+          help_title: help title todo
+          help_html: help html todo
+          user_avatar: Enable user avatar upload
+          user_search: Enable user search
+          user_follow: Enable user follow
+          user_index: Enable user index
+          user_public_page: Enable user public page
+        edit:
+          user_avatar: Enable user avatar upload
+          user_search: Enable user search
+          user_follow: Enable user follow
+          user_index: Enable user index
+          user_public_page: Enable user public page
+          my_privacy: My privacy
+          select_your_privacy: Select your privacy
+          title: Edit configuration
+          save: Save
+          update_privacy: Update privacy
+        update:
+          success: Privacy setting successfully updated.
+          error: Error updating privacy setting.
+        index:
+          title: Titolo privacy
+      form:
+        actions:
+          help: Help
+        title: Edit configuration

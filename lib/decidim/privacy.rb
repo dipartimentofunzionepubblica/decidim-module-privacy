@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'deface'
+
 require "decidim/privacy/admin"
 require "decidim/privacy/engine"
 require "decidim/privacy/admin_engine"

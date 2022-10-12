@@ -18,7 +18,8 @@ gem "decidim-privacy"
 And then execute:
 
 ```bash
-bundle
+bundle exec rails decidim_privacy:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Contributing
