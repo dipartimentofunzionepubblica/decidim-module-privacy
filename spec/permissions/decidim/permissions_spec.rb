@@ -27,7 +27,7 @@ describe Decidim::Permissions do
 
     context "when follow with wrong action" do
       let(:action) { { scope: :public, action: :follow_wrong, subject: :follow } }
-      it_behaves_like "permission is not set"
+      it { is_expected.to eq false }
     end
 
   end
