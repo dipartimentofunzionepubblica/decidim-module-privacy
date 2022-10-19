@@ -7,6 +7,8 @@ module Decidim
         def permissions
           return permission_action unless user
 
+          return permission_action unless user&.admin?
+
           return permission_action if permission_action.scope != :admin
 
           return permission_action unless permission_action.subject.in? [:admin_setting]
@@ -14,7 +16,7 @@ module Decidim
           return permission_action if context[:current_organization].privacy_setting != context[:setting]
 
           case permission_action.action
-          when :index, :show, :create, :update, :destroy
+          when :update
             permission_action.allow!
           end
 
