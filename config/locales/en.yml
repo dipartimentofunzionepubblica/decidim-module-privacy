@@ -3,7 +3,7 @@ en:
   layouts:
     decidim:
       user_profile:
-        my_privacy: Select you privacy
+        my_privacy: Select your privacy
   decidim:
     admin:
       menu:
@@ -21,11 +21,11 @@ en:
           form:
             help_title: help title todo
             help_html: help html todo
-            user_avatar: Enable user avatar upload
-            user_search: Enable user && comment search
-            user_follow: Enable user follow
-            user_index: Enable user index
-            user_public_page: Enable user public page
+            user_avatar: Enable/Disable user avatar upload
+            user_search: Enable/Disable user && comment search
+            user_follow: Enable/Disable user follow
+            user_index: Enable/Disable user index
+            user_public_page: Enable/Disable user public page
           edit:
             title: Edit configuration
             save: Save
@@ -36,19 +36,19 @@ en:
             title: Titolo privacy
       privacy:
         form:
-          help_title: help title todo
-          help_html: help html todo
-          user_avatar: Enable user avatar upload
-          user_search: Enable user search
-          user_follow: Enable user follow
-          user_index: Enable user index
-          user_public_page: Enable user public page
+          help_title: ""
+          help_html: ""
+          user_avatar: Enable/Disable user avatar upload
+          user_search: Enable/Disable user search
+          user_follow: Enable/Disable user follow
+          user_index: Enable/Disable user index
+          user_public_page: Enable/Disable user public page
         edit:
-          user_avatar: Enable user avatar upload
-          user_search: Enable user search
-          user_follow: Enable user follow
-          user_index: Enable user index
-          user_public_page: Enable user public page
+          user_avatar: Enable/Disable user avatar upload
+          user_search: Enable/Disable user search
+          user_follow: Enable/Disable user follow
+          user_index: Enable/Disable user index
+          user_public_page: Enable/Disable user public page
           my_privacy: My privacy
           select_your_privacy: Select your privacy
           title: Edit configuration
@@ -61,5 +61,5 @@ en:
           title: Titolo privacy
       form:
         actions:
-          help: Help
+          help: ""
         title: Edit configuration

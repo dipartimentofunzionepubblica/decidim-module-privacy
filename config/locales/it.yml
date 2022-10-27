@@ -1,0 +1,65 @@
+---
+it:
+  layouts:
+    decidim:
+      user_profile:
+        my_privacy: La mia privacy
+  decidim:
+    admin:
+      menu:
+        privacy: Modulo Privacy
+        comparative_stats: "comparative_stats"
+    user:
+      menu:
+        privacy: La mia privacy
+    components:
+      privacy:
+        name: Privacy
+    privacy:
+      admin:
+        privacy:
+          form:
+            help_title: ""
+            help_html: ""
+            user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
+            user_search: Abilita/Disabilita la ricerca degli utenti e dei loro commenti
+            user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+            user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche
+            user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
+          edit:
+            title: Modifica le configurazioni
+            save: Salva modifiche
+          update:
+            success: Configurazioni privacy salvate correttamente.
+            error: Errore durante il salvataggio delle configurazioni.
+          index:
+            title: Titolo privacy
+      privacy:
+        form:
+          help_title: ""
+          help_html: ""
+          user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
+          user_search: Abilita/Disabilita la ricerca del tuo profilo e dei tuoi commenti
+          user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+          user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle tue pagine pubbliche
+          user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
+        edit:
+          user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
+          user_search: Abilita/Disabilita la ricerca del tuo profilo e dei tuoi commenti
+          user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+          user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle tue pagine pubbliche
+          user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
+          my_privacy: La mia privacy
+          select_your_privacy: Personalizza la tua privacy
+          title: Modifica la configurazione
+          save: Salva modifiche
+          update_privacy: Salva modifiche
+        update:
+          success: Configurazioni privacy salvate correttamente.
+          error: Errore durante il salvataggio delle configurazioni.
+        index:
+          title: Titolo privacy
+      form:
+        actions:
+          help: ""
+        title: Modifica le configurazioni
