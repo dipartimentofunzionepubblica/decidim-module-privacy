@@ -14,6 +14,10 @@ module Decidim
       self.privacy_setting.user_follow
     end
 
+    def can_user_send_private_message?
+      self.privacy_setting.user_message
+    end
+
     def need_create_privacy_setting
       self.create_privacy_setting
     end

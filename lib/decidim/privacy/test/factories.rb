@@ -15,6 +15,7 @@ FactoryBot.define do
     user_avatar { true }
     user_search { true }
     user_follow { true }
+    user_message { true }
     user_index { true }
     user_public_page { true }
 

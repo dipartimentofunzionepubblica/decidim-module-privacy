@@ -31,6 +31,7 @@ module Decidim
           user_avatar: form.user_avatar,
           user_search: form.user_search,
           user_follow: form.user_follow,
+          user_message: form.user_message,
           user_index: form.user_index,
           user_public_page: form.user_public_page
         )

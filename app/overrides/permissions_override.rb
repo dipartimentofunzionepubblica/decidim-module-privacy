@@ -17,5 +17,19 @@ module Decidim
       toggle_allow(follow&.user == user)
     end
 
+    def conversation_action?
+      return unless permission_action.subject == :conversation
+      return allow! if permission_action.action == :list
+
+      conversation = context.fetch(:conversation)
+      interlocutor = context.fetch(:interlocutor, user)
+      organization = context.fetch(:current_organization, nil)
+
+      return disallow! if !organization.can_user_send_private_message? && [:create, :update].include?(permission_action.action) && !conversation.participants.any?(&:admin?)
+      return disallow! if [:create, :update].include?(permission_action.action) && !conversation&.accept_user?(interlocutor)
+
+      toggle_allow(conversation&.participating?(interlocutor))
+    end
+
   end
 end

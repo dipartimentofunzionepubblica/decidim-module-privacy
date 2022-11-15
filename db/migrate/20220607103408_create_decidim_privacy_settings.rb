@@ -6,6 +6,7 @@ class CreateDecidimPrivacySettings < ActiveRecord::Migration[6.0]
       t.boolean :user_avatar, default: true
       t.boolean :user_search, default: true
       t.boolean :user_follow, default: true
+      t.boolean :user_message, default: true
       t.boolean :user_index, default: true
       t.boolean :user_public_page, default: true
     end

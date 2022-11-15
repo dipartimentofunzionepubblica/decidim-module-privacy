@@ -24,6 +24,7 @@ it:
             user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
             user_search: Abilita/Disabilita la ricerca degli utenti e dei loro commenti
             user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+            user_message: Abilita/Disabilita la possibiltà di inviare messaggi privati agli utenti
             user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche
             user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
           edit:
@@ -41,12 +42,14 @@ it:
           user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
           user_search: Abilita/Disabilita la ricerca del tuo profilo e dei tuoi commenti
           user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+          user_message: Abilita/Disabilita la possibiltà di inviare messaggi privati agli utenti
           user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle tue pagine pubbliche
           user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
         edit:
           user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
           user_search: Abilita/Disabilita la ricerca del tuo profilo e dei tuoi commenti
           user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
+          user_message: Abilita/Disabilita la possibiltà di inviare messaggi privati agli utenti
           user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle tue pagine pubbliche
           user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
           my_privacy: La mia privacy

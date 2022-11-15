@@ -24,6 +24,7 @@ en:
             user_avatar: Enable/Disable user avatar upload
             user_search: Enable/Disable user && comment search
             user_follow: Enable/Disable user follow
+            user_message: Enable/Disable user private messages
             user_index: Enable/Disable user index
             user_public_page: Enable/Disable user public page
           edit:
@@ -41,12 +42,14 @@ en:
           user_avatar: Enable/Disable user avatar upload
           user_search: Enable/Disable user search
           user_follow: Enable/Disable user follow
+          user_message: Enable/Disable user private messages
           user_index: Enable/Disable user index
           user_public_page: Enable/Disable user public page
         edit:
           user_avatar: Enable/Disable user avatar upload
           user_search: Enable/Disable user search
           user_follow: Enable/Disable user follow
+          user_message: Enable/Disable user private messages
           user_index: Enable/Disable user index
           user_public_page: Enable/Disable user public page
           my_privacy: My privacy

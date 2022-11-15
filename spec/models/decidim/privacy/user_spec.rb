@@ -17,6 +17,7 @@ module Decidim
         it "should do something" do
           expect(current_user.privacy_settings).to be_empty
           expect(current_user.can_user_follow?).to eq(true)
+          expect(current_user.can_user_send_private_message?).to eq(true)
           expect(current_user.can_user_index?).to eq(true)
           expect(current_user.can_show_public_page?).to eq(true)
           expect(current_user.privacy_settings).not_to be_empty
@@ -25,12 +26,13 @@ module Decidim
 
       describe "method with changed values" do
         before do
-          current_organization.privacy_setting.update(user_public_page: false, user_follow: false, user_index: false)
+          current_organization.privacy_setting.update(user_public_page: false, user_follow: false, user_index: false, user_message: false)
         end
 
         it "should do something" do
           expect(current_user.privacy_settings).to be_empty
           expect(current_user.can_user_follow?).to eq(false)
+          expect(current_user.can_user_send_private_message?).to eq(false)
           expect(current_user.can_user_index?).to eq(false)
           expect(current_user.can_show_public_page?).to eq(false)
           expect(current_user.privacy_settings).not_to be_empty

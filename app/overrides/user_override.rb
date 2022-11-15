@@ -14,6 +14,11 @@ module Decidim
       s.user_follow && us.user_follow
     end
 
+    def can_user_send_private_message?
+      s, us = setts
+      s.user_message && us.user_message
+    end
+
     def can_user_index?
       s, us = setts
       s.user_index && us.user_index

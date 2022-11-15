@@ -1,22 +1,23 @@
 # Decidim Privacy
 
 Il componente aggiunge la possibilità di personalizzare opzioni di privacy a livello di organizzazine e/o di singolo utente.
-Sviluppata da [Kapusons](https://www.kapusons.it) per la versione v0.25.2 di Decidim. Dipende dalle gemme [decidim](https://github.com/decidim/decidim/tree/v0.25.2) e [deface](https://github.com/spree/deface#readme).
+Dipende dalle gemme [decidim](https://github.com/decidim/decidim/tree/v0.25.2) e [deface](https://github.com/spree/deface#readme).
 
 ## Come usare
 
 Nel backoffice, nei Settings viene aggiunta una voce di menu "Privacy Module" che permetterà di editare le configurazioni a livello di 
 organizzazione per tutti gli utenti:
-1. Enable user avatar upload: permettere di rimuovere all'utente la possibilità di caricare un avatar.
-2. Enable user && comment search: rimuove dai risultati di ricerca gli utenti e i commenti.
-3. Enable user follow: disabilita la possibilità di seguire utenti.
-4. Enable user index: permette di disabilitare l'indicizzazione dei motori di ricerca nelle pagine pubbliche.
-5. Enable user public page: disabilita la visualizzazione della pagina "Activity".
+1. Abilita/Disabilita l'upload dell'avatar agli utenti.
+2. Abilita/Disabilita la ricerca del profilo utente e dei relativi commenti.
+3. Abilita/Disabilita la possibiltà di seguire gli utenti.
+4. Abilita/Disabilita la possibiltà di inviare messaggi privati agli utenti. Le conversazioni con gli admin rimangono comunque possibili.
+5. Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche.
+6. Abilita/Disabilita la visualizzazione della pagina "Attività" agli altri utenti.
 
 Nel frontend, in My account viene aggiunta una voce di menu "My Privacy" che permetterà di editare le configurazioni a livello di singolo utente:
-1. Enable user && comment search: rimuove dai risultati di ricerca se stesso utenti e i relativi commenti.
-2. Enable user index: permette di disabilitare l'indicizzazione dei motori di ricerca nelle pagine pubbliche.
-3. Enable user public page: disabilita la visualizzazione agli altri utenti della pagina "Activity".
+1. Abilita/Disabilita la ricerca del profilo utente e dei relativi commenti.
+2. Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche.
+3. Abilita/Disabilita la visualizzazione della pagina "Attività" agli altri utenti.
 
 ## Installazione
 
@@ -36,8 +37,11 @@ bundle exec rails db:migrate
 
 Di default tutte le configurazioni hanno valore `true` e quindi il comportamento di decidim non cambia.
 
-## Contributing
-https://github.com/kapusons/decidim-module-privacy/graphs/contributors
+## Contributori
+Gem sviluppata da [Kapusons](https://www.kapusons.it) per [Formez PA](https://www.formez.it). Per contatti scrivere a maintainer-partecipa@formez.it.
 
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## Segnalazioni sulla sicurezza
+La gem utilizza tutte le raccomandazioni e le prescrizioni in materia di sicurezza previste da Decidim e dall’Agenzia per l’Italia Digitale per SPID. Per segnalazioni su possibili falle nella sicurezza del software riscontrate durante l'utilizzo preghiamo di usare il canale di comunicazione confidenziale attraverso l'indirizzo email security-partecipa@formez.it e non aprire segnalazioni pubbliche. E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime o non sufficientemente dettagliate non potranno essere verificate.
+
+## Licenza
+Vedi [LICENSE-AGPLv3.txt](LICENSE-AGPLv3.txt).
