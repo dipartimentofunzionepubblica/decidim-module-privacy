@@ -14,7 +14,7 @@ organizzazione per tutti gli utenti:
 5. Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche.
 6. Abilita/Disabilita la visualizzazione della pagina "Attività" agli altri utenti.
 
-Nel frontend, in My account viene aggiunta una voce di menu "My Privacy" che permetterà di editare le configurazioni a livello di singolo utente:
+Nel frontend, ne "Il mio account" viene aggiunta una voce di menu "La mia privacy" che permetterà di editare le configurazioni a livello di singolo utente:
 1. Abilita/Disabilita la ricerca del profilo utente e dei relativi commenti.
 2. Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche.
 3. Abilita/Disabilita la visualizzazione della pagina "Attività" agli altri utenti.
