@@ -10,41 +10,35 @@
 module Decidim
   class Search
 
-    def filtered_query_for(class_name)
-      query = SearchableResource.where(
-        organization: organization,
-        locale: I18n.locale,
-        resource_type: class_name
-      )
+    def call
+      search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
+        custom_filter_namespace = "Decidim::Searchable::#{class_name.demodulize}".safe_constantize
+        result_query = filtered_query_for(class_name)
+        if custom_filter_namespace
+          filter_classess = custom_filter_namespace.constants.select {|c| custom_filter_namespace.const_get(c).is_a? Class}
+          filter_classess.each do |filter_class|
+            current_klass = "#{custom_filter_namespace}::#{filter_class}".safe_constantize
+            result_query = current_klass.call(result_query, organization) if current_klass && current_klass.respond_to?(:call)
+          end
+          end
+        result_ids = result_query.pluck(:resource_id)
 
-      clean_filters.each_pair do |attribute_name, value|
-        query = query.where(attribute_name => value)
+        results_count = result_ids.count
+
+        results = if filters[:resource_type].present? && filters[:resource_type] == class_name
+                    paginate(klass.order_by_id_list(result_ids))
+                  elsif filters[:resource_type].present?
+                    ApplicationRecord.none
+                  else
+                    klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
+                  end
+
+        results_by_type.update(class_name => {
+          count: results_count,
+          results: results
+        })
       end
-
-      setting = organization.privacy_setting ? organization.privacy_setting : organization.create_privacy_setting
-      if class_name == "Decidim::User"
-        if setting.user_search
-          excluded_ids = Decidim::Privacy::Setting.where(decidim_organization_id: organization, user_search: false).pluck(:decidim_user_id)
-          query = query.where.not(resource_id: excluded_ids).where(resource_type: "Decidim::User") if excluded_ids.present?
-        else
-          query = query.where(resource_id: [], resource_type: "Decidim::User")
-        end
-
-      end
-
-      if class_name == "Decidim::Comments::Comment"
-        if setting.user_search
-          users_ids = Decidim::Privacy::Setting.where(decidim_organization_id: organization, user_search: false).pluck(:decidim_user_id)
-          excluded_ids = Decidim::Comments::Comment.where(decidim_author_id: users_ids).pluck(:id)
-          query =  query.where.not(resource_id: excluded_ids).where(resource_type: "Decidim::Comments::Comment") if excluded_ids.present?
-        else
-          query =  query.where(resource_id: [], resource_type: "Decidim::Comments::Comment")
-        end
-      end
-
-      query = query.order("datetime DESC")
-      query = query.global_search(I18n.transliterate(term)) if term.present?
-      query
+      broadcast(:ok, search_results)
     end
 
   end

@@ -1,0 +1,1 @@
+require 'decidim/searchable/user/privacy'

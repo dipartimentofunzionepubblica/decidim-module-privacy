@@ -11,6 +11,8 @@ require "decidim/privacy/admin"
 require "decidim/privacy/engine"
 require "decidim/privacy/admin_engine"
 require "decidim/privacy/component"
+require_relative "searchable/comment"
+require_relative "searchable/user"
 
 module Decidim
   module Privacy
