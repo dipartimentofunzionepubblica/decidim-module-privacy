@@ -11,11 +11,23 @@
     </div>
     <div class="columns large-8 end">
       <%#= f.check_box :user_avatar, label: t(".user_avatar") %>
-      <%= f.check_box :user_search, label: t(".user_search") %>
+      <%= f.check_box :user_search, label: t(".user_search"),
+                      checked: current_organization.can_user_search? ? @current_setting.user_search : false,
+                      disabled: !current_organization.can_user_search?,
+                      label_options: { style: current_organization.can_user_search? ? "" : "opacity: 0.5;" }
+      %>
       <%#= f.check_box :user_follow, label: t(".user_follow") %>
-      <%= f.check_box :user_index, label: t(".user_index") %>
-      <%= f.check_box :user_public_page, label: t(".user_public_page") %>
-      <%= f.submit t(".update_privacy") %>
+      <%= f.check_box :user_index, label: t(".user_index"),
+                      checked: current_organization.can_user_index? ? @current_setting.user_index : false,
+                      disabled: !current_organization.can_user_index?,
+                      label_options: { style: current_organization.can_user_index? ? "" : "opacity: 0.5;" }
+      %>
+      <%= f.check_box :user_public_page, label: t(".user_public_page"),
+                      checked: current_organization.can_user_show_public_page? ? @current_setting.user_public_page : false,
+                      disabled: !current_organization.can_user_show_public_page?,
+                      label_options: { style: current_organization.can_user_show_public_page? ? "" : "opacity: 0.5;" }
+      %>
+      <%= f.submit t(".update_privacy"), disabled: !current_user.can_edit_privacy? %>
     </div>
   <% end %>
 </div>

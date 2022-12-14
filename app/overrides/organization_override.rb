@@ -25,6 +25,22 @@ module Decidim
       self.privacy_setting.user_message
     end
 
+    def can_user_show_public_page?
+      self.privacy_setting.user_public_page
+    end
+
+    def can_user_send_private_message?
+      self.privacy_setting.user_message
+    end
+
+    def can_user_search?
+      self.privacy_setting.user_search
+    end
+
+    def can_user_index?
+      self.privacy_setting.user_index
+    end
+
     def need_create_privacy_setting
       self.create_privacy_setting
     end

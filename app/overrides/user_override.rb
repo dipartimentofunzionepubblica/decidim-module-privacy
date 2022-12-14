@@ -31,9 +31,19 @@ module Decidim
       s.user_index && us.user_index
     end
 
+    def can_user_search?
+      s, us = setts
+      s.user_search && us.user_search
+    end
+
     def can_show_public_page?
       s, us = setts
       s.user_public_page && us.user_public_page
+    end
+
+    def can_edit_privacy?
+      o = self.organization
+      o.can_user_index? || o.can_user_show_public_page? || o.can_user_search?
     end
 
     private
