@@ -3,7 +3,7 @@
     <div class="card__header collapse">
       <%= cell("decidim/user_profile", raw_model).user_data %>
     </div>
-    <% unless raw_model.is_a?(Decidim::User) && !current_organization.can_user_send_private_message? %>
+    <% if current_organization.can_user_send_private_message? %>
       <div class="card__text card--picture-offset">
         <%= text_link_to_current_or_new_conversation_with(model) %>
       </div>
@@ -11,7 +11,7 @@
   </div>
   <div class="ml-s">
     <%= cell "decidim/follow_button", raw_model %>
-    <% unless raw_model.is_a?(Decidim::User) && !current_organization.can_user_follow? %>
+    <% if current_organization.can_user_follow? %>
       <div>
         <%= link_to decidim.profile_followers_path(raw_model.nickname), class: "card__link" do %>
           <strong><%= model.followers_count %></strong> <%= t("decidim.profiles.show.followers") %>

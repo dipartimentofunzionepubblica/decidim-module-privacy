@@ -1,7 +1,7 @@
 <div id="<%= dom_id(model, :follow) %>">
   <% if current_user %>
     <% if current_user.follows?(model) %>
-      <% unless model.is_a?(Decidim::User) && !current_organization.can_user_follow? %>
+      <% if current_organization.can_user_follow? %>
         <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, method: :delete, remote: true do %>
           <span class="icon-wrap">
             <%= icon "bell", icon_options %>
@@ -15,7 +15,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <% unless model.is_a?(Decidim::User) && !current_organization.can_user_follow? %>
+      <% if current_organization.can_user_follow? %>
         <%= button_to decidim.follow_path, class: button_classes, params: { follow: { followable_gid: model.to_sgid.to_s, inline: inline? } }, data: { disable: true }, remote: true do %>
           <span class="icon-wrap">
             <%= icon "bell", icon_options %>
@@ -34,7 +34,7 @@
       <% end %>
     <% end %>
   <% else %>
-    <% unless model.is_a?(Decidim::User) && !current_organization.can_user_follow? %>
+    <% if current_organization.can_user_follow? %>
       <%= action_authorized_button_to(
             :follow,
             decidim.follow_path,
