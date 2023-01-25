@@ -13,7 +13,7 @@
         </span>
         &nbsp;
       <% end %>
-      <% if can_contact_user? && (current_organization.can_user_send_private_message? || current_user.admin? ) %>
+      <% if can_contact_user? && (current_organization.can_user_send_private_message? || (current_user && current_user.admin?) ) %>
         <span class="user-contact_link">
           <%= link_to_current_or_new_conversation_with(profile_holder) %>
         </span>
