@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     decidim-privacy (0.25.2)
-      decidim-admin (= 0.25.2)
-      decidim-core (= 0.25.2)
+      decidim-admin (>= 0.25.x, < 0.27.x)
+      decidim-core (>= 0.25.x, < 0.27.x)
       deface (= 1.9.0)
 
 GEM
