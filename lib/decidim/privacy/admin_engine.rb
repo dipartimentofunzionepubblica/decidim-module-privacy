@@ -33,7 +33,8 @@ module Decidim
       initializer "decidim_privacy.admin_menu" do
         Decidim.menu :admin_settings_menu do |menu|
           setting = current_organization.privacy_setting ? current_organization.privacy_setting : current_organization.create_privacy_setting
-          menu.item I18n.t("menu.privacy", scope: "decidim.admin"),
+          menu.add_item :privacy_settings,
+                    I18n.t("menu.privacy", scope: "decidim.admin"),
                     decidim_admin_privacy.edit_privacy_path(id: setting),
                     position: 3.5
         end
