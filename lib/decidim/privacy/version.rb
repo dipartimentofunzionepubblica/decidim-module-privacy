@@ -9,7 +9,7 @@ module Decidim
   # This holds the decidim-meetings version.
   module Privacy
     def self.version
-      "0.25.2"
+      "0.26.10"
     end
   end
 end
