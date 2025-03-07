@@ -19,8 +19,6 @@ it:
       admin:
         privacy:
           form:
-            help_title: ""
-            help_html: ""
             user_avatar: Abilita/Disabilita l'upload dell'avatar agli utenti
             user_search: Abilita/Disabilita la ricerca degli utenti e dei loro commenti
             user_follow: Abilita/Disabilita la possibiltà di seguire gli utenti
@@ -28,8 +26,10 @@ it:
             user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle pagine pubbliche
             user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
           edit:
+            help_title: ""
+            help_html: ""
             title: Modifica le configurazioni
-            save: Salva modifiche
+            save: Modifica
           update:
             success: Configurazioni privacy salvate correttamente.
             error: Errore durante il salvataggio delle configurazioni.
@@ -52,7 +52,6 @@ it:
           user_message: Abilita/Disabilita la possibiltà di inviare messaggi privati agli utenti
           user_index: Abilita/Disabilita l'indicizzazione dei motori di ricerca sulle tue pagine pubbliche
           user_public_page: Abilita/Disabilita la pagina "Attività" agli altri utenti
-          my_privacy: La mia privacy
           select_your_privacy: Personalizza la tua privacy
           title: Modifica la configurazione
           save: Salva modifiche

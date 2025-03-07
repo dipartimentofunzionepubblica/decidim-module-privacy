@@ -1,36 +1,82 @@
-<% add_decidim_page_title(t("my_privacy", scope: "layouts.decidim.user_profile")) %>
-<% content_for(:subtitle) { t("my_privacy", scope: "layouts.decidim.user_profile") } %>
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <% add_decidim_page_title(t("my_privacy", scope: "layouts.decidim.user_profile")) %>
+  <% content_for(:subtitle) { t("my_privacy", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row">
-  <div class="columns large-8 end">
-    <p><%= t(".select_your_privacy") %></p>
-  </div>
   <%= form_for(@current_setting, url: decidim_privacy.privacy_path(id: @current_setting), method: :put, class: "user-form") do |f| %>
-    <div class="columns large-8 end">
-      <p><strong><%= t(".my_privacy") %></strong></p>
-    </div>
-    <div class="columns large-8 end">
-      <%#= f.check_box :user_avatar, label: t(".user_avatar") %>
-      <%= f.check_box :user_search, label: t(".user_search"),
-                      checked: current_organization.can_user_search? ? @current_setting.user_search : false,
-                      disabled: !current_organization.can_user_search?,
-                      label_options: { style: current_organization.can_user_search? ? "" : "opacity: 0.5;" }
-      %>
-      <%#= f.check_box :user_follow, label: t(".user_follow") %>
-      <%= f.check_box :user_index, label: t(".user_index"),
-                      checked: current_organization.can_user_index? ? @current_setting.user_index : false,
-                      disabled: !current_organization.can_user_index?,
-                      label_options: { style: current_organization.can_user_index? ? "" : "opacity: 0.5;" }
-      %>
-      <%= f.check_box :user_public_page, label: t(".user_public_page"),
-                      checked: current_organization.can_user_show_public_page? ? @current_setting.user_public_page : false,
-                      disabled: !current_organization.can_user_show_public_page?,
-                      label_options: { style: current_organization.can_user_show_public_page? ? "" : "opacity: 0.5;" }
-      %>
-      <%= f.submit t(".update_privacy"), disabled: !current_user.can_edit_privacy? %>
+    <div class="form__wrapper pt-0">
+      <label>
+        <%= t("select_your_privacy", scope: "decidim.privacy.privacy.edit") %>
+      </label>
+      <div class="space-y-4">
+        <div class="toggle__switch-trigger">
+          <label for="setting_user_search" class="toggle__switch-toggle">
+            <span>
+              <input
+                <%== %(checked="checked") if current_organization.can_user_search? && @current_setting.user_search %>
+                id="setting_user_search"
+                type="checkbox"
+                <%= !current_organization.can_user_search? ? "disabled=disabled" : "" %>
+                name="setting[user_search]">
+              <span class="toggle__switch-toggle-content">
+              </span>
+              <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+              <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+            </span>
+            <span class="toggle__switch-trigger-text">
+              <%= t("user_search", scope: "decidim.privacy.privacy.edit") %>
+            </span>
+          </label>
+        </div>
+
+
+        <div class="toggle__switch-trigger">
+          <label for="setting_user_index" class="toggle__switch-toggle">
+            <span>
+              <input
+                <%== %(checked="checked") if current_organization.can_user_index? && @current_setting.user_index %>
+                id="setting_user_index"
+                type="checkbox"
+                <%= !current_organization.can_user_index? ? "disabled=disabled" : "" %>
+                name="setting[user_index]">
+              <span class="toggle__switch-toggle-content">
+              </span>
+              <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+              <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+            </span>
+            <span class="toggle__switch-trigger-text">
+              <%= t("user_index", scope: "decidim.privacy.privacy.edit") %>
+            </span>
+          </label>
+        </div>
+
+        <div class="toggle__switch-trigger">
+          <label for="setting_user_public_page" class="toggle__switch-toggle">
+            <span>
+              <input
+                <%== %(checked="checked") if current_organization.can_user_show_public_page? && @current_setting.user_public_page %>
+                id="setting_user_public_page"
+                type="checkbox"
+                <%= !current_organization.can_user_show_public_page? ? "disabled=disabled" : "" %>
+                name="setting[user_public_page]">
+              <span class="toggle__switch-toggle-content">
+              </span>
+              <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+              <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+            </span>
+            <span class="toggle__switch-trigger-text">
+              <%= t("user_public_page", scope: "decidim.privacy.privacy.edit") %>
+            </span>
+          </label>
+        </div>
+
+        <div class="form__wrapper-block">
+          <%= f.submit t("update_privacy", scope: "decidim.privacy.privacy.edit"), disabled: !current_user.can_edit_privacy?, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0" %>
+        </div>
+
+      </div>
     </div>
   <% end %>
-</div>
+<% end %>
 
 <!-- Copyright (C) 2022 Formez PA
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.

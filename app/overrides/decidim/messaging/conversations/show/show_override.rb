@@ -5,7 +5,7 @@
 
 # Abilitazione/disabilitazione della form per rispondere ad una vecchia conversazione in base ai settings
 
-Deface::Override.new(virtual_path: "decidim/messaging/conversations/show", name: "remove-reply-conversation-form", replace: "erb:contains('render \"reply\", form: @form, conversation: conversation')") do
+Deface::Override.new(virtual_path: "decidim/messaging/conversations/show", name: "remove-reply-conversation-form", replace: "erb:contains('render \"reply\", form: @form, conversation:')") do
   "
   <% if current_organization.can_user_send_private_message? || conversation.participants.any?(&:admin?) %>
     <%= render 'reply', form: @form, conversation: conversation %>

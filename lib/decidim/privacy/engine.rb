@@ -49,6 +49,11 @@ module Decidim
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
+      initializer "decidim_privacy.register_icons" do
+        Decidim.icons.register(name: "lock-2-line", icon: "lock-2-line", category: "system", description: "", engine: :decidim_privacy)
+        Decidim.icons.register(name: "information-fill", icon: "text", category: "system", description: "", engine: :decidim_privacy)
+      end
+
       overrides = "#{Decidim::Privacy::Engine.root}/app/overrides"
       # Rails.autoloaders.main.ignore(overrides)
       config.to_prepare do

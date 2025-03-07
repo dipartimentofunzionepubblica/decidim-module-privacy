@@ -5,12 +5,10 @@
 
 # Abilitazione/disabilitazione dell'upload avatar in base ai settings
 
-Deface::Override.new(virtual_path: "decidim/account/show", name: "user-can-upload-image", replace: "div.columns.large-4") do
+Deface::Override.new(virtual_path: "decidim/account/show", name: "user-can-upload-image", replace: "erb:contains('f.upload :avatar, button_class: \"button button__lg button__transparent-secondary w-full\"')") do
 "
   <% if current_organization.can_upload_avatar? %>
-    <div class='columns large-4'>
-      <%= f.upload :avatar %>
-    </div>
+     <%= f.upload :avatar, button_class: 'button button__lg button__transparent-secondary w-full' %>
   <% end %>
 "
 end

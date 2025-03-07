@@ -1,11 +1,39 @@
-<%= decidim_form_for(@form, url: decidim_admin_privacy.privacy_path(id: @current_setting), method: :put) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t "decidim.privacy.form.title" %>
+  </h1>
 
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".save") %>
+  <a data-toggle="help-panel" class="label secondary">
+    <%= icon("information-line") %>
+    <%= t "decidim.privacy.form.actions.help" %>
+  </a>
+</div>
+
+<div class="item__edit-form">
+  <div id="help-panel" class="callout help-text hide" data-toggler=".hide">
+    <p><strong><%= t ".help_title" %></strong></p>
+    <%= t ".help_html" %>
   </div>
-<% end %>
 
+  <%= decidim_form_for(@form, url: decidim_admin_privacy.privacy_path(id: @current_setting), method: :put, html: { class: 'form-defaults' }) do |f| %>
+      <div class="card">
+        <div class="card-section">
+          <div class="form__wrapper">
+            <div class="card pt-4">
+              <div class="card-section">
+                <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".save"), class: 'button button__sm button__secondary' %>
+        </div>
+      </div>
+  <% end %>
+</div>
 <!-- Copyright (C) 2022 Formez PA
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.

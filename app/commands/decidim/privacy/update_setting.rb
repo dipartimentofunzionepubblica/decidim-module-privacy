@@ -9,7 +9,7 @@
 
 module Decidim
   module Privacy
-    class UpdateSetting < Rectify::Command
+    class UpdateSetting < Decidim::Command
       def initialize(form, setting, user)
         @form = form
         @setting = setting

@@ -1,42 +1,20 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
-      <div>
-        <%= t "decidim.privacy.form.title" %>
-
-        <a data-toggle="help-panel" class="label secondary">
-          <%= icon("info") %>
-          <%= t "decidim.privacy.form.actions.help" %>
-        </a>
-      </div>
-    </h2>
-  </div>
-
-  <div class="card-section">
-    <div id="help-panel" class="callout help-text hide" data-toggler=".hide">
-      <p><strong><%= t ".help_title" %></strong></p>
-      <%= t ".help_html" %>
-    </div>
-
-    <div class="row column">
-      <%= form.check_box :user_avatar, label: t(".user_avatar") %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :user_search, label: t(".user_search") %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :user_follow, label: t(".user_follow") %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :user_message, label: t(".user_message") %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :user_index, label: t(".user_index") %>
-    </div>
-    <div class="row column">
-      <%= form.check_box :user_public_page, label: t(".user_public_page") %>
-    </div>
-  </div>
+<div class="row column">
+  <%= form.check_box :user_avatar, label: t(".user_avatar") %>
+</div>
+<div class="row column">
+  <%= form.check_box :user_search, label: t(".user_search") %>
+</div>
+<div class="row column">
+  <%= form.check_box :user_follow, label: t(".user_follow") %>
+</div>
+<div class="row column">
+  <%= form.check_box :user_message, label: t(".user_message") %>
+</div>
+<div class="row column">
+  <%= form.check_box :user_index, label: t(".user_index") %>
+</div>
+<div class="row column">
+  <%= form.check_box :user_public_page, label: t(".user_public_page") %>
 </div>
 
 <!-- Copyright (C) 2022 Formez PA

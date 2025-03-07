@@ -36,6 +36,7 @@ module Decidim
           menu.add_item :privacy_settings,
                     I18n.t("menu.privacy", scope: "decidim.admin"),
                     decidim_admin_privacy.edit_privacy_path(id: setting),
+                    icon_name: 'lock-2-line',
                     position: 3.5
         end
       end
