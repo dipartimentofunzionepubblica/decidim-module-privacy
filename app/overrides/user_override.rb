@@ -38,7 +38,7 @@ module Decidim
 
     def can_show_public_page?
       s, us = setts
-      s.user_public_page && us.user_public_page
+      !self.is_a?(Decidim::User) || s.user_public_page && us.user_public_page
     end
 
     def can_edit_privacy?
