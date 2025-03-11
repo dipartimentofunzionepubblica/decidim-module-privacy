@@ -1,5 +1,5 @@
 <% if current_user.present? %>
-  <% if current_organization.can_user_follow? || ![Decidim::User,Decidim::UserGroup].member?(model.class) %>
+  <% if current_organization.can_user_follow? || ![Decidim::User].member?(model.class) %>
     <%= link_to(
           path,
           class: button_classes,
@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <% if current_organization.can_user_follow? || ![Decidim::User,Decidim::UserGroup].member?(model.class) %>
+  <% if current_organization.can_user_follow? || ![Decidim::User].member?(model.class) %>
     <%= action_authorized_button_to(
           :follow,
           path,
