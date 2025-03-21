@@ -1,6 +1,6 @@
 <% can_show_link = (model.is_a?(Decidim::User) && model.can_show_public_page?) ||
-  (model.is_a?(Decidim::UserGroupMembership) && user.can_show_public_page?)
-
+  (model.is_a?(Decidim::UserGroupMembership) && user.can_show_public_page?) ||
+  model.is_a?(Decidim::UserGroup)
 %>
 
 <% if can_show_link %>

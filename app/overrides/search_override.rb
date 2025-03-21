@@ -20,14 +20,14 @@ module Decidim
             current_klass = "#{custom_filter_namespace}::#{filter_class}".safe_constantize
             result_query = current_klass.call(result_query, organization) if current_klass && current_klass.respond_to?(:call)
           end
-          end
-        result_ids = result_query.pluck(:resource_id)
+        end
 
+        result_ids = result_query.pluck(:resource_id)
         results_count = result_ids.count
 
-        results = if filters[:resource_type].present? && filters[:resource_type] == class_name
+        results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
                     paginate(klass.order_by_id_list(result_ids))
-                  elsif filters[:resource_type].present?
+                  elsif filters[:with_resource_type].present?
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
@@ -35,7 +35,7 @@ module Decidim
 
         results_by_type.update(class_name => {
           count: results_count,
-          results: results
+          results:
         })
       end
       broadcast(:ok, search_results)
