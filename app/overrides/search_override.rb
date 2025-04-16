@@ -8,38 +8,41 @@
 # frozen_string_literal: true
 
 module Decidim
-  class Search
-
+  class Search < Decidim::Command
+    
     def call
-      search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
+        search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
         custom_filter_namespace = "Decidim::Searchable::#{class_name.demodulize}".safe_constantize
         result_query = filtered_query_for(class_name)
-        if custom_filter_namespace
+        if !custom_filter_namespace.nil?
           filter_classess = custom_filter_namespace.constants.select {|c| custom_filter_namespace.const_get(c).is_a? Class}
-          filter_classess.each do |filter_class|
+            filter_classess.each do |filter_class|
             current_klass = "#{custom_filter_namespace}::#{filter_class}".safe_constantize
             result_query = current_klass.call(result_query, organization) if current_klass && current_klass.respond_to?(:call)
-          end
-          end
+         end
+        end
         result_ids = result_query.pluck(:resource_id)
 
         results_count = result_ids.count
 
-        results = if filters[:resource_type].present? && filters[:resource_type] == class_name
-                    paginate(klass.order_by_id_list(result_ids))
-                  elsif filters[:resource_type].present?
-                    ApplicationRecord.none
-                  else
-                    klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
-                  end
+        if results_count==0
+             results_ary=[]
+        else
+            if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
+               results_ary = paginate(klass.order_by_id_list(result_ids))
+             elsif filters[:with_resource_type].present?
+               results_ary = ApplicationRecord.none
+             else
+               results_ary = klass.order_by_id_list(result_ids)
+             end
+        end
 
         results_by_type.update(class_name => {
           count: results_count,
-          results: results
+          results: results_ary
         })
       end
       broadcast(:ok, search_results)
     end
-
-  end
+	end
 end

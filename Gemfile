@@ -13,6 +13,7 @@ gem "puma", ">= 5.5"
 gem "uglifier", "~> 4.1"
 gem "bootsnap"
 gem "doorkeeper", "~> 5.5.1"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
