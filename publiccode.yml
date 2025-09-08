@@ -65,6 +65,8 @@ it:
     cie: false
     pagopa: false
     spid: false
+  riuso:
+    codiceIPA: pcm
 legal:
   license: AGPL-3.0-or-later
 localisation:
