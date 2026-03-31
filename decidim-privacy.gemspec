@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", ">= 0.28.x", "< 0.29.x"
-  s.add_dependency "decidim-admin", ">= 0.28.x", "< 0.29.x"
+  s.add_dependency "decidim-core", "~> 0.30.0"
+  s.add_dependency "decidim-admin", "~> 0.30.0"
   s.add_dependency "deface", '1.9.0'
 end

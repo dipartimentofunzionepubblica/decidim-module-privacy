@@ -16,10 +16,9 @@ module Decidim
 
     def destroy
       @form = form(Decidim::FollowForm).from_params(params)
-      @inline = params[:follow][:inline] == "true"
-      enforce_permission_to :delete, :follow, follow: @form.follow, resource: resource
+      enforce_permission_to :delete, :follow, follow: @form.follow
 
-      DeleteFollow.call(@form, current_user) do
+      DeleteFollow.call(@form) do
         on(:ok) do
           render :update_button
         end
@@ -32,10 +31,9 @@ module Decidim
 
     def create
       @form = form(Decidim::FollowForm).from_params(params)
-      @inline = params[:follow][:inline] == "true"
-      enforce_permission_to :create, :follow, resource: resource
+      enforce_permission_to :create, :follow
 
-      CreateFollow.call(@form, current_user) do
+      CreateFollow.call(@form) do
         on(:ok) do
           render :update_button
         end

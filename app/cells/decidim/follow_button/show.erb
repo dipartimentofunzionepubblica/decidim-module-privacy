@@ -13,8 +13,7 @@
   <% end %>
 <% else %>
   <% if current_organization.can_user_follow? || ![Decidim::User].member?(model.class) %>
-    <%= action_authorized_button_to(
-          :follow,
+    <%= logged_button_to(
           path,
           resource: model,
           class: button_classes,

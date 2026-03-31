@@ -61,6 +61,7 @@ module Decidim
         Dir.glob("#{overrides}/**/*_override.rb").each do |override|
           load override
         end
+        ::Decidim::LastActivity.prepend(Decidim::Privacy::LastActivityOverride)
       end
     end
   end

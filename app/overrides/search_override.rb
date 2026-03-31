@@ -33,6 +33,13 @@ module Decidim
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
 
+        uncommentable_resources = uncommentable_resources(results) if results.present?
+        if uncommentable_resources.present?
+          results -= uncommentable_resources
+          results_count -= uncommentable_resources.count
+        end
+
+
         results_by_type.update(class_name => {
           count: results_count,
           results:
