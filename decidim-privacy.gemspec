@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["l.angelone@kapusons.it"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/dipartimentofunzionepubblica/decidim-module-privacy"
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = ">= 3.2.6"
 
   s.name = "decidim-privacy"
   s.summary = "A decidim privacy module"
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", ">= 0.28.x", "< 0.29.x"
-  s.add_dependency "decidim-admin", ">= 0.28.x", "< 0.29.x"
+  s.add_dependency "decidim-core", ">= 0.29.x", "< 0.30.x"
+  s.add_dependency "decidim-admin", ">= 0.29.x", "< 0.30.x"
   s.add_dependency "deface", '1.9.0'
 end
