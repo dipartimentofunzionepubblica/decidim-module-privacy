@@ -48,5 +48,9 @@ module Decidim
       broadcast(:ok, search_results)
     end
 
+    def related_uncommentable_resources?(object)
+      object.respond_to?(:commentable) && !object.commentable&.commentable?
+    end
+
   end
 end
